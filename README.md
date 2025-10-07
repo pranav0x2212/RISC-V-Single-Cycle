@@ -1,6 +1,8 @@
 # RISC-n-Roll
 RISC-n-Roll is a Single Cycle RISC-V Processor for Hacknight 7.0 built from modular components.
 
+Maintainer: [Pranav M](https://github.com/pranav0x0112)
+
 ## Modules
 
 Click on a module name to see its folder and instructions:
