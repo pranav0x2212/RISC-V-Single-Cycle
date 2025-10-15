@@ -24,15 +24,8 @@ Click on a module name to see its folder and instructions:
 - [Sign_Extender](Sign_Extender/)
 - [Top](Top/)
 
-## Contribution Guidelines
-
-1. Fork the repo and work on **one module at a time**.
-2. Follow the **README inside each module folder** for detailed instructions.
-3. Submit a Pull Request (PR) with:
-   - `rtl.sv` (module implementation)
-   - `tb.sv` (testbench)
-   - Waveform screenshot showing correctness
-4. PRs will be **manually reviewed**. Incomplete submissions may be closed.
+> [!IMPORTANT]
+> Check out [CONTRIBUTING.md](CONTRIBUTING.md) for details regarding how to contribute to each module.
 
 ## Tools / Recommendations
 
