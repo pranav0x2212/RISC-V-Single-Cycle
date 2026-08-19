@@ -21,3 +21,8 @@ module flopenr #(parameter WIDTH = 8)(
 
 > [!TIP] 
 > Consider the order of reset and enable in the `always_ff` block to ensure correct behavior.
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
