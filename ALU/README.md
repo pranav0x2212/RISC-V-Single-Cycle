@@ -21,3 +21,8 @@ module alu(
 |010|AND|
 |011|OR|
 |101|Set Less Than (SLT)|
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, port widths, and ALU control table above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, change port widths, or redefine the `alucontrol` encodings.
