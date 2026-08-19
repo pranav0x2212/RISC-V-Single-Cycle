@@ -20,3 +20,8 @@ module flopr #(parameter WIDTH = 8)(
 
 > [!TIP] 
 > Ensure the reset takes priority over normal data capture in the `always_ff` block.
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
