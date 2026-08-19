@@ -19,3 +19,20 @@ module aludec(
 - Determines the **ALU operation** (`ALUControl`) based on the instruction fields and `ALUOp`.
 - Supports **R-type, I-type arithmetic, and branch instructions**.
 - Must correctly differentiate between **add/subtract** for R-type instructions.
+
+### ALUControl Mapping (Locked Baseline ISA)
+
+The table below defines the required `ALUControl` value for every baseline instruction that reaches the ALU:
+
+| Instruction | ALUControl |
+|---|---|
+| ADD, ADDI, LW, SW | 000 |
+| SUB, BEQ | 001 |
+| AND, ANDI | 010 |
+| OR, ORI | 011 |
+| SLT, SLTI | 101 |
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
