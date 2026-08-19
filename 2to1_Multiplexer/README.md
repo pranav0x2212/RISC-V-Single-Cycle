@@ -1,6 +1,6 @@
 # 2:1 Multiplexer
 
-Design a 8-bit parameterized 2:1 Multiplexer.
+Design an 8-bit parameterized 2:1 Multiplexer.
 
 ### Module Specification
 
@@ -12,3 +12,8 @@ module mux2 #(parameter WIDTH = 8)(
     output logic [WIDTH-1:0]  y    // Output
     );
 ```
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
