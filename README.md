@@ -2,7 +2,7 @@
 
 RISC-n-Roll is the starter/specification repository for this course's single-cycle RISC-V processor project. Each student **forks this repository** and independently builds their **own complete single-cycle RISC-V processor**, module by module, over four weeks.
 
-Maintainer: [Pranav M](https://github.com/pranav0x0112)
+Maintainer: COD TA's of '27 graduating batch.
 
 ## How this repository works
 
