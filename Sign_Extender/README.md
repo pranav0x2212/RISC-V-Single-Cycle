@@ -21,3 +21,13 @@ module extend(
 
 >[!TIP]  
 > Think about which bits of the instruction correspond to each immediate type and how to extend the **sign bit** to fill 32 bits.
+
+### Notes
+
+- `immext` is always **sign-extended to 32 bits**, regardless of immediate type.
+- **B-type** and **J-type** immediates are used as PC-relative offsets: they are shifted left by 1 when forming the branch/jump target address (`PC + (ImmExt << 1)`).
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
