@@ -19,3 +19,8 @@ module riscvsingle(
 
 >[!TIP]
 >Think what could "wrap" mean here :D
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
