@@ -17,3 +17,8 @@ module top(
 > [!TIP]  
 > Acts as the **top-level system** for simulation and verification.
 > Think of this as the “glue” that ties the processor and memories together.
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
