@@ -30,3 +30,16 @@ module datapath(
 - All mux selections, register file writes, and ALU operations should follow the **control signals** provided.
 - Ensure **combinational outputs and sequential registers** are used correctly (e.g., PC update).
 - Do **not change widths or naming** of input/output signals.
+
+### PC Update and Branch/Jump Target
+
+- The next value of `PC` is selected using `PCSrc` between **PC+4** and the **PC-relative branch/jump target**.
+- The target address is computed as: `PC + (ImmExt << 1)`.
+- **B-type** immediates (`ImmExt`) are used for **BEQ** targets; **J-type** immediates are used for **JAL** targets.
+- `Zero` is asserted when the ALU result is zero.
+- For **JAL**, `PC+4` is written to `rd` through the `ResultSrc` write-back mux.
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
