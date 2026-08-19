@@ -13,7 +13,13 @@ module imem(
 
 ### Guidelines
 
-- Memory should be **word-addressable**.
+- Addressing is **byte-addressable CPU addressing**: `a` is a byte address.
+- Memory stores **32-bit words** and contains **64 words**.
+- For aligned accesses, the word index is `a / 4`.
 - Initialize memory using a `.txt` file.
 - Reads are **combinational**.
-- Memory size: 64 words (32-bit each).
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
