@@ -18,10 +18,38 @@ module maindec(
 );
 ```
 
-### Hint for Contributors
+### Baseline Behavior (Locked ISA)
+
+- `Branch` is asserted for **BEQ**.
+- `Jump` is asserted for **JAL**.
+- The baseline processor supports exactly **BEQ** for branch instructions and **JAL** for jump instructions. No other RV32I branch or jump instructions (e.g. BNE, BLT, JALR) are supported.
+
+### Control Signal Table (Locked Baseline ISA)
+
+The table below gives the required control-signal values for each baseline instruction category. "Don't care" means the datapath does not use that signal's value for the given category.
+
+`ResultSrc` encoding: `00` = ALU result, `01` = memory read data, `10` = PC+4.
+`ImmSrc` encoding (per Sign_Extender): `00` = I-type, `01` = S-type, `10` = B-type, `11` = J-type.
+`ALUOp` encoding: `00` = always add (memory address calculation), `01` = always subtract (branch comparison), `10` = determined by `funct3`/`funct7b5` (see ALU_Decoder).
+
+| Category | ResultSrc | MemWrite | Branch | ALUSrc | RegWrite | Jump | ImmSrc | ALUOp |
+|---|---|---|---|---|---|---|---|---|
+| R-type | 00 | 0 | 0 | 0 | 1 | 0 | Don't care | 10 |
+| I-type ALU | 00 | 0 | 0 | 1 | 1 | 0 | 00 | 10 |
+| LW | 01 | 0 | 0 | 1 | 1 | 0 | 00 | 00 |
+| SW | Don't care | 1 | 0 | 1 | 0 | 0 | 01 | 00 |
+| BEQ | Don't care | 0 | 1 | 0 | 0 | 0 | 10 | 01 |
+| JAL | 10 | 0 | 0 | Don't care | 1 | 1 | 11 | Don't care |
+
+### Hint for Students
 
 >[!TIP]
 >We have the following instruction types: `R-Type`, `I-Type`, `Load`, `Store`, `B-Type`, `Jump`.
 > Think about which control signals are relevant for each type of instruction:       
 
-Contributors should reason about the signal values for each instruction type instead of hardcoding them from external sources.
+Students should reason about the signal values for each instruction type instead of hardcoding them from external sources.
+
+### Fixed Interface
+
+> [!IMPORTANT]
+> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
