@@ -11,31 +11,6 @@ Maintainer: COD TA's of '27 graduating batch.
 - Students do not submit pull requests back to this repository. It is the shared specification, not a shared codebase.
 - Each module's **name, port list, and port widths are a fixed contract**. Do not rename modules, add, remove, or reorder ports, or change port widths. Later modules and your evaluation both depend on these interfaces staying exact.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the full student workflow.
-
-## Baseline Instruction Set
-
-The processor implements a fixed subset of RV32I. It does not implement the full ISA. The table below lists the required instructions:
-
-| Category | Instructions |
-|---|---|
-| R-type | ADD, SUB, AND, OR, SLT |
-| I-type ALU | ADDI, ANDI, ORI, SLTI |
-| Memory | LW, SW |
-| Branch | BEQ |
-| Jump | JAL |
-
-No other RV32I instructions are required or expected.
-
-## Four-Week Progression
-
-Students build the processor bottom-up across four weeks:
-
-- [Week 1](docs/WEEK1.md): independent building blocks (multiplexers, adder, flip-flops, register file, sign extender, instruction/data memory)
-- [Week 2](docs/WEEK2.md): ALU, decoders, and the control unit
-- [Week 3](docs/WEEK3.md): datapath and the single-cycle processor core
-- [Week 4](docs/WEEK4.md): full system integration (`Top`)
-
 ## Modules
 
 Click on a module name to see its folder and specification:
