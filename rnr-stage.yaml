@@ -1,0 +1,36 @@
+# CI configuration. Edit this file and push; the check appears on your latest commit.
+#
+# 1. Set `stage` to the stage you are submitting. CI checks that stage and every earlier one.
+#      fetch -> decode_control -> execute -> integration -> system
+#    (add `cumulative: false` below `stage` to check only the named stage)
+# 2. Under `modules`, point `source_files` at the .sv file(s) of each module you have written.
+#    The default paths below are only suggestions: use any file names or folders you like.
+#    Modules of later stages are ignored until you reach their stage.
+# 3. If your module/port/parameter names differ from the spec, add them under that module:
+#      flopr:
+#        source_files: [rtl/my_register.sv]
+#        top_module: my_reg                              # your module's name
+#        ports:  {d: din, clk: ck, reset: rst, q: dout}  # spec port: your port
+#        params: {WIDTH: W}                              # spec parameter: your parameter
+#    Spec port names are in each module's README.md. Ports you do not list keep the spec name.
+# A module that uses others (e.g. datapath uses regfile, alu, ...) needs those listed too.
+yaml_version: 1
+stage: fetch
+
+modules:
+  flopr:       {source_files: [Resettable_FF/rtl.sv]}
+  flopenr:     {source_files: [Resettable_En_FF/rtl.sv]}
+  adder:       {source_files: [Adder/rtl.sv]}
+  mux2:        {source_files: [2to1_Multiplexer/rtl.sv]}
+  imem:        {source_files: [IMEM/rtl.sv]}
+  regfile:     {source_files: [Register_File/rtl.sv]}
+  extend:      {source_files: [Sign_Extender/rtl.sv]}
+  maindec:     {source_files: [Main_Decoder/rtl.sv]}
+  aludec:      {source_files: [ALU_Decoder/rtl.sv]}
+  controller:  {source_files: [Control_Unit/rtl.sv]}
+  alu:         {source_files: [ALU/rtl.sv]}
+  mux3:        {source_files: [3to1_Multiplexer/rtl.sv]}
+  datapath:    {source_files: [Datapath/rtl.sv]}
+  riscvsingle: {source_files: [RISCV_Wrapper/rtl.sv]}
+  dmem:        {source_files: [DMEM/rtl.sv]}
+  top:         {source_files: [Top/rtl.sv]}
