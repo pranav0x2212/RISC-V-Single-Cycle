@@ -1,19 +1,14 @@
-# CI configuration. Edit this file and push; the check appears on your latest commit.
+# CI configuration. Edit this file, then commit and push.
 #
-# 1. Set `stage` to the stage you are submitting. CI checks that stage and every earlier one.
-#      fetch -> decode_control -> execute -> integration -> system
-#    (add `cumulative: false` below `stage` to check only the named stage)
-# 2. Under `modules`, point `source_files` at the .sv file(s) of each module you have written.
-#    The default paths below are only suggestions: use any file names or folders you like.
-#    Modules of later stages are ignored until you reach their stage.
-# 3. If your module/port/parameter names differ from the spec, add them under that module:
-#      flopr:
-#        source_files: [rtl/my_register.sv]
-#        top_module: my_reg                              # your module's name
-#        ports:  {d: din, clk: ck, reset: rst, q: dout}  # spec port: your port
-#        params: {WIDTH: W}                              # spec parameter: your parameter
-#    Spec port names are in each module's README.md. Ports you do not list keep the spec name.
-# A module that uses others (e.g. datapath uses regfile, alu, ...) needs those listed too.
+# 1. Set `stage` (fetch -> decode_control -> execute -> integration -> system).
+#    CI checks that stage and every earlier one; modules of later stages are ignored.
+# 2. Point `source_files` at your .sv file for each module you have written. The paths below are
+#    only suggestions: use any file names or folders.
+# 3. Only if your module/port/parameter names differ from the spec, add under that module:
+#      top_module: my_name
+#      ports:  {spec_port: your_port}
+#      params: {WIDTH: your_param}
+#    See the assignment handout for an example.
 yaml_version: 1
 stage: fetch
 
