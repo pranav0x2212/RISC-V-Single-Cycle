@@ -1,0 +1,11 @@
+yaml_version: 1
+project:
+  assignment: mux2
+  top_module: mux2
+  source_files:
+    - 2to1_Multiplexer/rtl.sv
+ports:
+  d0: d0
+  d1: d1
+  s: s
+  y: y
