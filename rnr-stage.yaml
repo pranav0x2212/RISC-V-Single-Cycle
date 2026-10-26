@@ -1,6 +1,0 @@
-yaml_version: 1
-stage: slice_flopr
-modules:
-  flopr:
-    source_files:
-      - Resettable_FF/rtl.sv
