@@ -22,7 +22,7 @@ module dmem(
 - Writes occur on the **rising edge of `clk`** when `we` (write enable) is high.
 - Reads are **combinational**.
 
-### Fixed Interface
+### Interface
 
 > [!IMPORTANT]
-> The module name, port list, and port widths shown above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, or change port widths.
+> Your module, port and parameter names are up to you. Your design must have the same number of ports, with the same directions and widths, as shown above, and must behave as specified. Map your names to this spec in `rnr-stage.yaml` (see the assignment handout).

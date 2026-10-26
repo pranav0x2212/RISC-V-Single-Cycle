@@ -22,7 +22,7 @@ module alu(
 |011|OR|
 |101|Set Less Than (SLT)|
 
-### Fixed Interface
+### Interface
 
 > [!IMPORTANT]
-> The module name, port list, port widths, and ALU control table above are a fixed contract for this course. Do not rename the module, rename/reorder/add/remove ports, change port widths, or redefine the `alucontrol` encodings.
+> Your module, port and parameter names are up to you. Your design must have the same number of ports, with the same directions and widths, as shown above, and must follow the `alucontrol` encodings in the table above. Map your names to this spec in `rnr-stage.yaml` (see the assignment handout).
