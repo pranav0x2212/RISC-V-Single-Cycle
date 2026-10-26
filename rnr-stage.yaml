@@ -1,0 +1,8 @@
+yaml_version: 1
+stage: slice_flopr
+modules:
+  flopr:
+    source_files: [rtl/anything_i_like.sv]
+    top_module: my_reg
+    ports:  {d: din, clk: ck, reset: rst, q: dout}
+    params: {WIDTH: W}
