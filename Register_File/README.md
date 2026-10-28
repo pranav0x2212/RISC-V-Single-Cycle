@@ -1,38 +1,30 @@
 # Register File
 
-Design a 32×32 three-ported register file with two read ports and one write port.
-
-The register file contains **32 registers, each 32 bits wide**.
+Design a 32×32 register file with two read ports and one write port, with an asynchronous reset.
 
 ### Module Specification
 
 ```SystemVerilog
-module regfile(
-    input  logic        clk,   // clock
-    input  logic        we3,   // write enable for port 3
-    input  logic [4:0]  a1, a2, a3, // read addresses (a1,a2), write address (a3)
-    input  logic [31:0] wd3,       // write data for port 3
-    output logic [31:0] rd1, rd2   // read data outputs
+module register_file(
+    input  logic [4:0]  rs1_sel, rs2_sel,   // read addresses
+    input  logic        reg_write,          // write enable
+    input  logic        clk,
+    input  logic        reset,              // Asynchronous, active high
+    input  logic [31:0] wb_data,            // write data
+    input  logic [4:0]  rd_sel,             // write address
+    output logic [31:0] rs1_data, rs2_data  // read data
 );
 ```
 
 ### Working
 
-- **Read Ports:**
-    
-    - `rd1` reads `rf[a1]`
-        
-    - `rd2` reads `rf[a2]`
-        
-    - Reads are **combinational**, i.e., reflect memory instantly.
-        
-- **Write Port:**
-    
-    - `rf[a3] <= wd3` on rising edge of `clk` **if `we3` is high**.
-        
-- **Register 0:**
-    
-    - Always hardwired to 0, cannot be written.
+- **Reads are combinational:** `rs1_data = rs1_sel == 0 ? 0 : register[rs1_sel]`, same for `rs2_data`.
+- **Write:** `register[rd_sel] <= wb_data` on the rising edge of `clk` if `reg_write` is high and `rd_sel != 0`.
+- **Register 0** always reads 0 and cannot be written.
+- **Reset:** when `reset` goes high, **all registers are cleared to 0** immediately (no clock needed).
+
+> [!NOTE]
+> The CI synthesizes with Yosys 0.33, which cannot parse assignment patterns. Do **not** write `register <= '{default: 0};`; clear the registers with a `for` loop instead.
 
 ### Interface
 
